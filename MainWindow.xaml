@@ -1,0 +1,75 @@
+﻿<Window x:Class="FinalProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalProject"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="420" Width="700">
+    <Window.Background>
+        <ImageBrush ImageSource="Image\book-stack-books-education-48126.jpg"/>
+    </Window.Background>
+<Grid HorizontalAlignment="Left" Margin="0,0,0,0" Height="750" Width="700">
+       
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="100"/>
+            <ColumnDefinition  Width="300"/>
+            <ColumnDefinition  Width="100"/>
+            <ColumnDefinition  Width="100"/>
+
+            <ColumnDefinition  Width="100"/>
+            <ColumnDefinition  Width="100"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="50"/>
+            <RowDefinition Height=" 50"/>
+            <RowDefinition Height=" 50"/>
+            <RowDefinition Height=" 50"/>
+            <RowDefinition Height=" 50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="300"/>
+
+            <RowDefinition Height="118.4"/>
+            <RowDefinition Height="1500.4"/>
+
+
+        </Grid.RowDefinitions>
+       
+        <Button Name="LendMediaButton" FontWeight="Black" Grid.Column="0" Grid.Row="1" Content="LendMedia" Margin="3,2.6,3,2.8" Click="LendMediaButton_Click" />
+        <Button Name="ReturnMediabutton" FontWeight="Black" Grid.Column="0" Grid.Row="2" Content="ReturnMedia" Margin="3,3.2" Click="ReturnMediabutton_Click"/>
+        <Button Name="MediaInfoButton" FontWeight="Black" Grid.Column="0" Grid.Row="3" Content="MeidaInfo" Margin="3,2.8,3,2.6" Click="MediaInfoButton_Click" />
+        <Button Name="MemberInfoButton" FontWeight="Black" Grid.Column="0" Grid.Row="4" Content="MemberInfo" Margin="3,3.4,3,3.2" Click="MemberInfoButton_Click" />
+        
+        <Label Grid.Column="1" VerticalAlignment="Center" FontFamily="Trebuchet MS" 
+        FontWeight="Black" FontSize="18" Foreground="Black">
+           Library Managment Application
+        </Label>
+
+      
+        <DataGrid Name="memebrs" Background="Transparent" RowBackground="Transparent" FontWeight="Bold" FontFamily="Trebuchet MS"  Grid.RowSpan="6" Grid.Column="0"  Grid.Row="4" AutoGenerateColumns="False" Margin="0,49.4,0,1.2" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="LibraryMembers" Binding="{Binding Name , Mode=OneWay}" Width="*" />
+            </DataGrid.Columns>
+           
+        </DataGrid>
+       
+
+        <DataGrid Name="testdatagrid" Grid.Column="1" Background="Transparent" RowBackground="Transparent" FontWeight="Bold"  Grid.RowSpan="15" Grid.ColumnSpan="4"  AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,50,10,2.4" RenderTransformOrigin="0.522,0.242">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Title"  Binding="{Binding Title ,Mode=OneWay}"  Width="*"  />
+                <DataGridTextColumn Header="Type"  Binding="{Binding Mediatype,Mode=OneWay}" Width="*" />
+                <DataGridCheckBoxColumn Header="Availability" Binding="{Binding Availability ,Mode=OneWay}" />
+                <DataGridTextColumn Header="Borrower" Binding="{Binding libraryMembers ,Mode=OneWay}"   Width="*"/>
+
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+    </Grid>
+</Window>
